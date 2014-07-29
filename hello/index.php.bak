@@ -1,0 +1,11 @@
+<html>
+	<head>
+		<title> Hello World!</title>
+		<body>
+			<?php 
+			echo 'Hello ds, hello world!'.'<br /'';
+			echo date('H:i, jS F Y');
+			?>
+			</body>
+		</head>
+	</html>

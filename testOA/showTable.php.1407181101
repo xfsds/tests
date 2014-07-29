@@ -1,0 +1,40 @@
+﻿<?php
+
+	function showTable($result)
+	{
+	$resultRow = $result->num_rows;
+	?>
+	<table border="0" align="center">
+
+		<tr bgcolor="#dddddd">
+			<td width="150">ID</td>
+			<td width="100">描述</td>
+		</tr>
+
+		<?php
+		for ($i=0;$i<$resultRow;$i++)
+		{
+			$row = $result->fetch_object();
+
+			?>
+			<tr bgcolor="#eeeeee">
+				<td>
+					<?php
+					echo $row->id;
+					?>
+				</td>
+				<td>
+					<?php
+					echo $row->text;
+					?>
+				</td>
+			</tr>
+			<?php
+		}
+		?>
+
+	</table>
+	<?php
+	}
+
+?>

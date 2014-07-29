@@ -1,0 +1,75 @@
+<html>
+	<head>
+		<title>Anhui Anrui Detection Technology Co., Ltd.</title>
+	</head>
+
+	<style>
+		#center	{
+			background: #bbb;
+			width: 1000px;
+			margin: 10px auto;
+		}
+	</style>
+
+	<?php
+
+	/*
+	echo '<p>456</p>';
+	echo 'server software: ' . $_SERVER['SERVER_SOFTWARE'] . '<br/>';
+	echo 'php auth user: '.$_SERVER['PHP_AUTH_USER'] . '<br/>';
+	echo 'php auth pw: '.$_SERVER['PHP_AUTH_PW'] . '<br/>';
+	echo 'http authorization: '.$_SERVER['HTTP_AUTHORIZATION'] . '<br/>';
+	*/
+
+	header('WWW-Authenticate: Basic realm="user:pass"');
+	header('HTTP/1.0 401 Unauthorized');
+
+	if (!isset($_SERVER['PHP_AUTH_USER']) || !isset($_SERVER['PHP_AUTH_PW']))
+	{
+		echo 'fuck off';
+	}
+	elseif ( ($_SERVER['PHP_AUTH_USER'] != 'user') || ($_SERVER['PHP_AUTH_PW'] != 'pass') )
+	{
+		echo 'fuck off';
+	}
+	else
+	{
+		?>
+		
+		<body>
+			<div id="center">
+				<div style="text-align:center">
+					<form action="login.php" mechod="post">
+						<table border="0" align="center">
+
+							<tr bgcolor="#dddddd">
+								<td width="150">œÓ</td>
+								<td width="100">÷µ</td>
+							</tr>
+
+							<tr bgcolor="#eeeeee">
+								<td>–’√˚</td>
+								<td align="center"><input type="text" name="name" size="10" maxlength="10"></td>
+							</tr>
+
+							<tr bgcolor="#eeeeee">
+								<td>√‹¬Î</td>
+								<td align="center"><input type="password" name="passwd" size="10" maxlength="10"></td>
+							</tr>
+
+							<tr bgcolor="#dddddd">
+								<td align="center" colspan="2"><input type="submit" value="Submit All"></td>
+							</tr>
+
+						</table>
+					</form>
+				</div>
+			</body>
+
+			<?php
+		}
+		?>
+
+
+
+	</html>

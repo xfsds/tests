@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lan="zh-cn">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=devide-width, initial-scale=1">
+	<title>Test jQuery 1</title>
+
+	<link href="../bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+	<script src="../js/jquery-1.11.1.min.js"></script>
+	<script src="../bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<h1 align="center">This is a jQuery <small>&bootstrap</small> test page</h1>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-6">
+				<h1 id="div1" align="center">Hello <small id="s1"> ds </small></h1>
+			</div>
+			<div class="col-md-6">
+				<h2 id="div2" align="center">World </h2>
+			</div>
+		</div>
+
+
+	</div>
+
+
+	<script type="text/javascript">
+		//$('#div1').insertAfter($('#div2')).html("halo");
+		//$('#div2').after($('#div1')).html("www");
+		$('#s1').appendTo($('#div2')).html("DS");
+		//$('#div2').text("DS").append($('#s1'));
+		$('<ul id="ul1">').insertAfter($('#div1'))
+		.append('<li>list item 1</li>')
+		.append('<li>list item 2</li>')
+		.append('<li>list item 3</li>')
+		.append('<li>list item 4</li>')
+		.append('<li>list item 5</li>')
+		.append('<li>list item 6</li>')
+		.append('</ul>');
+
+		$('#s1').bind('click',function(){
+			$('#ul1').slideToggle();
+		});
+
+		/*
+		$('#div2').bind('mouseout',function(){
+			$('#div1').fadeOut();
+		});
+		$('#div2').bind('mouseover',function(){
+			$('#div1').fadeIn();
+		});
+		*/
+	</script>
+</body>
+
+</html>

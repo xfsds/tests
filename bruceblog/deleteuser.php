@@ -1,0 +1,25 @@
+<?php
+include 'functions.php';
+
+$username =$error= "";
+
+if(isset($_GET['account']))
+{
+	$username = sanitizeString ( $_GET['account'] );
+
+	if ($username == "") {
+		$error = "ÐÕÃûÎª¿Õ£¡";
+	} else {
+		$query = " delete from user where account = '$username'";
+
+		if (mysql_num_rows ( queryMysql ( $query ) ) == 0) {
+			$error = "É¾³ýÊ§°Ü£¡";
+		} else {
+			$error = "É¾³ý³É¹¦£¡";
+		}
+		
+		redirect('userlist.php');
+	}
+}
+
+?>

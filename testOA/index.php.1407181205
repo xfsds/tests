@@ -1,0 +1,48 @@
+﻿<html>
+	<head>
+		<title>Anhui Anrui Detection Technology Co., Ltd.</title>
+	</head>
+
+	<style>
+		#center	{
+			background: #bbb;
+			width: 1000px;
+			margin: 10px auto;
+		}
+	</style>
+
+	<?php
+
+
+	require("customer.php");
+	require("showTable.php");
+
+	session_start();
+
+	@ $_SESSION['db'] = new mysqli('localhost','gb_db_admin','12345','guarantee_business_db');
+	//@ $db = new mysqli('localhost','gb_db_admin','12345','guarantee_business_db');
+
+	if ($_SESSION['db']->connect_errno)
+	{
+		echo '<p>';
+		echo $_SESSION['db']->connect_error;
+		echo '</p>';
+		exit;
+	}
+	else
+	{
+		echo "<p>Database connected</p>";
+	}
+
+	if (Customer::GetCustomerTypeInfo($result))
+	{
+	$columnWidth = array(100,150);
+	$columnHeader = array('ID','描述');
+	showTable($result,2,$columnHeader,$columnWidth);
+	}
+
+	?>
+
+
+
+</html>

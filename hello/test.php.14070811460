@@ -1,0 +1,17 @@
+<html>
+	<head>
+		<title>
+			Test Title
+		</title>
+	</head>
+	<body>
+		<?php
+		$tireqty = $_POST['tireqty'];
+		$oilqty = $_POST['oilqty'];
+		$sparkqty = $_POST['sparkqty'];
+		echo $tireqty.' tires<br />';
+		echo $oilqty.' oil<br />';
+		echo $sparkqty.' sparks<br />';
+		?>
+	</body>
+</html>

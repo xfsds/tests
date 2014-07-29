@@ -1,0 +1,31 @@
+﻿<?php
+
+
+/*
+	function AddCustomerHuman($name, &$info)
+	{		
+		$query = "insert into customer_human(name) values
+			('" . $name . "')";
+		return ($info = $_SESSION['db']->query($query));
+	}
+*/
+
+	
+		$query = "insert into customer_human(name) values
+			('" . $name . "')";
+		if ($info = $_SESSION['db']->query($query))
+		{
+	echo "<p align=\"center\">Query successful</p>";
+	echo "<p align=\"center\">" . $_SESSION['db']->affected_rows . " rows changed." . '</p>';
+		}
+		else
+		{
+	echo '<p align=\"center\">';
+	echo $_SESSION['db']->error;
+	echo '</p>';
+		}
+
+
+
+
+?>

@@ -1,0 +1,45 @@
+create database if not exists guarantee_business_db;
+use guarantee_business_db;
+
+grant
+
+create table if not exists staff(
+	id char(10) not null primary key,
+)
+
+create table if not exists customer(
+	id int unsigned not null auto_increment primary key,
+);
+
+create table if not exists guarantee_business(
+	id int unsigned not null auto_increment primary key,
+	customerID int unsigned not null reference customer(id),
+	stage tinyint unsigned not null,
+	
+	/* staff involved */
+	customer_mgr char(10) not null reference staff(id),
+	co_Investgator char(10) not null reference staff(id),
+	business_mgr char(10) not null reference staff(id),
+	rist_mgr char(10) not null reference staff(id),
+	vice_general_mgr char(10) not null reference staff(id),
+	chairman_assistant char(10) not null reference staff(id),
+	director char(10) not null reference staff(id),
+	vice_president char(10) not null reference staff(id),
+	accountant1 char(10) not null reference staff(id),
+	accountant2 char(10) not null reference staff(id),
+	counter_guarantee_mgr1 char(10) not null reference staff(id),
+	counter_guarantee_mgr2 char(10) not null reference staff(id),
+	archivist char(10) not null reference staff(id),
+	
+	/* stage 1 */
+	stage1_comment tinytext,
+	stage1_start_time datetime,
+	stage1_stop_time datetime,
+	
+	/* stage 1 */
+	stage1_comment tinytext,
+	stage1_start_time datetime,
+	stage1_stop_time datetime,
+	
+	
+);
