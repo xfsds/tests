@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=devide-width, initial-scale=1">
-	<title>Test jQuery 1</title>
+	<title>Test YUI</title>
 
 	<link href="../bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -13,7 +13,64 @@
 <body>
 	<script src="../js/jquery-1.11.1.min.js"></script>
 	<script src="../bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script src="../js/yui-min.js"></script>
+	<!--
+	<script src="http://yui.yahooapis.com/3.17.2/build/yui/yui-min.js"></script>
+	-->
 	
+	<div class="table">
+		<script>
+			YUI().use("datatable", function (Y) {
+
+				var data = [
+					{ id: "ga-3475", name: "gadget",   price: "$6.99", cost: "$5.99" },
+					{ id: "sp-9980", name: "sprocket", price: "$3.75", cost: "$3.25" },
+					{ id: "wi-0650", name: "widget",   price: "$4.25", cost: "$3.75" }
+				];
+
+				var table = new Y.DataTable({
+					columns: ["id", "name", "price"],
+					data: data,
+
+					// Optionally configure your table with a caption
+					caption: "My first DataTable!",
+
+					// and/or a summary (table attribute)
+					summary: "Example DataTable showing basic instantiation configuration"
+				});
+
+				table.render("#example");
+
+			});
+		</script>
+	</div>
+
+	<script type="text/javascript">
+
+		//YUI.use('datatable');
+/*
+
+		var dt=new Y.DataTable({
+			columns:['name','qty'];
+			data:[
+			{name:'apple', qty:16},
+			{name:'apple', qty:16},
+			{name:'apple', qty:16},
+			{name:'apple', qty:16},
+			{name:'apple', qty:16},
+			{name:'apple', qty:16},
+			{name:'apple', qty:16},
+			{name:'apple', qty:16},
+			{name:'apple', qty:16},
+			],
+			rowsPerPage: 4,
+			pageSizes:[4,'show all']
+		});
+		dt.render();
+		*/
+	</script>
+
+
 </body>
 
 </html>
