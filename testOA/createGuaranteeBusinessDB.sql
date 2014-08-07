@@ -167,13 +167,24 @@ insert into responsible_post values
 /* staff 需要补充 */
 create table if not exists staff
 (
-	id int unsigned not null primary key
+	id int unsigned not null primary key,
+	name char(10) not null,
+	passwd char(20) not null,
+	postID tinyint unsigned not null references post(id)
+);
+insert into staff(name,passwd,postID) values ('ds','duanshen',0);	#admin
+
+create table if not exists customer
+(
+	id int unsigned not null auto_increment primary key,
+	typeID tinyint unsigned not null references customer_type(id),
+	staffID int unsigned not null references staff(id)
 );
 
 /* 客户 自然人 需补充大量资料 */
 create table if not exists customer_human
 (
-	id int unsigned not null auto_increment primary key,
+	id int unsigned not null primary key references customer(id),
 	name char(10),
 	age tinyint unsigned,
 	identificationType enum('身份证', '驾驶证', '护照', '军官证'),
@@ -183,7 +194,7 @@ create table if not exists customer_human
 /* 客户 公司 需补充大量资料 */
 create table if not exists customer_company
 (
-	id int unsigned not null auto_increment primary key,
+	id int unsigned not null primary key references customer(id),
 	name char(255),
 	organizationCodeCertificate char(20),
 	taxRegistrationCertificate char(30),
